@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function TopBar() {
     const [loc, setLoc] = useState("");
     const [numDays, setNumDays] = useState("");
     const [home, setHome] = useState("");
     const [budget, setBudget] = useState("");
+    const navigate = useNavigate(); 
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -14,6 +16,10 @@ function TopBar() {
         console.log(budget)
         alert(`The name you entered was: ${loc}`)
     }
+
+    const handleProfileClick = () => {
+        navigate('/profile'); 
+    };
 
     return (
         <nav>
@@ -42,12 +48,11 @@ function TopBar() {
                         value={budget}
                         onChange={(e) => setBudget(e.target.value)} />
                 </label>
-                <input
-                    type="submit"
-                    onClick={handleSubmit} />
+                <input type="submit" onClick={handleSubmit} />
+                <button type="button" onClick={handleProfileClick}>Go to Profile</button> 
             </form>
         </nav>
-    )
+    );
 }
 
 export default TopBar;
