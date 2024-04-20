@@ -1,42 +1,52 @@
 import { useState } from 'react';
+import {useDispatch,useSelector} from 'react-redux';
+import { getPlacesAction } from '../actions/homeactions';
 
 function TopBar() {
+    const {loading,places}=useSelector(state=>state.getPlaces)
+    var date=new Date()
     const [loc, setLoc] = useState("");
-    const [numDays, setNumDays] = useState("");
+    const [startDate, setStartDate] = useState(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`);
+    const [endDate, setEndDate] = useState("");
     const [home, setHome] = useState("");
     const [budget, setBudget] = useState("");
-
+    const dispatch=useDispatch()
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(loc)
-        console.log(numDays)
-        console.log(home)
-        console.log(budget)
-        alert(`The name you entered was: ${loc}`)
+        let data={
+            loc,startDate,endDate,home,budget
+        }
+        dispatch(getPlacesAction(data))
     }
-
     return (
         <nav>
             <form id='topbar'>
+                <label>From
+                        <input
+                            type="text"
+                            value={home}
+                            onChange={(e) => setHome(e.target.value)} />
+                    </label>
                 <label>Location
                     <input
                         type="text"
                         value={loc}
                         onChange={(e) => setLoc(e.target.value)} />
                 </label>
-                <label>Number of days?
+                <label>Start Date
                     <input
-                        type="number"
-                        value={numDays}
-                        onChange={(e) => setNumDays(e.target.value)} />
+                        type="date"
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)} />
                 </label>
-                <label>From?
+                <label>Return Date
                     <input
-                        type="text"
-                        value={home}
-                        onChange={(e) => setHome(e.target.value)} />
+                        type="date"
+                        value={endDate}
+                        onChange={(e) => setEndDate(e.target.value)} />
                 </label>
-                <label>Budget?
+              
+                <label>Budget($)
                     <input
                         type="number"
                         value={budget}

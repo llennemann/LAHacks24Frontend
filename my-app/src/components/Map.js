@@ -1,9 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
-
 function Map() {
-    // Options for the polyline styling
     const limeOptions = { color: 'black', width : 2 };
-
     const coordinates = {
         "Los Angeles": [34.0522, -118.2437],
         "Kolkata": [22.5726, 88.3639],
@@ -23,15 +20,15 @@ function Map() {
             <MapContainer center={[34.0522, -118.2437]} zoom={2} scrollWheelZoom={false} style={{height: '90vh', width: '80vw'}}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                {/* Render markers and popups for each city */}
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+                    \
+                
                 {Object.entries(coordinates).map(([city, pos]) => (
                     <Marker key={city} position={pos}>
                         <Popup>{city}</Popup>
                     </Marker>
                 ))}
-                {/* Render polylines for each route */}
+               
                 {routes.map((route, index) => (
                     <Polyline key={index} pathOptions={limeOptions} positions={route} />
                 ))}
