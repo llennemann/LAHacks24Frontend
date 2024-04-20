@@ -19,22 +19,24 @@ function Map() {
     ];
 
     return (
-        <MapContainer center={[34.0522, -118.2437]} zoom={2} scrollWheelZoom={false} style={{height: '100vh', width: '100vw'}}>
-            <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            {/* Render markers and popups for each city */}
-            {Object.entries(coordinates).map(([city, pos]) => (
-                <Marker key={city} position={pos}>
-                    <Popup>{city}</Popup>
-                </Marker>
-            ))}
-            {/* Render polylines for each route */}
-            {routes.map((route, index) => (
-                <Polyline key={index} pathOptions={limeOptions} positions={route} />
-            ))}
-        </MapContainer>
+        <div id='map'>
+            <MapContainer center={[34.0522, -118.2437]} zoom={2} scrollWheelZoom={false} style={{height: '90vh', width: '80vw'}}>
+                <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                {/* Render markers and popups for each city */}
+                {Object.entries(coordinates).map(([city, pos]) => (
+                    <Marker key={city} position={pos}>
+                        <Popup>{city}</Popup>
+                    </Marker>
+                ))}
+                {/* Render polylines for each route */}
+                {routes.map((route, index) => (
+                    <Polyline key={index} pathOptions={limeOptions} positions={route} />
+                ))}
+            </MapContainer>
+        </div>
     );
 }
 
