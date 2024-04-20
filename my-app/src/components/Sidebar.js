@@ -7,7 +7,7 @@ function Sidebar({data}) {
     return (
         <div id="sidebar">
             <h3>Places: </h3>
-            {loading===false && places.length!==0 && places!==null ?
+            {loading===false && places!==undefined && places!==null ?
             places.map((place, index) => (  
                 <div key={index} className="places">
                     <p><Link to={`/schedule/${place.destination}`}>{place.destination}</Link>  </p>

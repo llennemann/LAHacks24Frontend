@@ -31,24 +31,30 @@ function TopBar() {
     return (
         <nav>
             <form id='topbar'>
-                <label>Destination
+                <label>Departure 
+                    <input
+                        type="text"
+                        value={home}
+                        onChange={(e) => setHome(e.target.value)} />
+                </label>
+                <label>Destination 
                     <input
                         type="text"
                         value={loc}
                         onChange={(e) => setLoc(e.target.value)} />
                 </label>
-                <label>Departure 
+                <label>Start Date
+                    <input
+                        type="date"
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)} />
+                </label>
+                <label>Return Date
                     <input
                         type="date"
                         value={endDate}
                         onChange={(e) => setEndDate(e.target.value)} />
                 </label>
-                {/* <label>Number of days
-                    <input
-                        type="number"
-                        value={numDays}
-                        onChange={(e) => setNumDays(e.target.value)} />
-                </label> */}
                 <label>Budget
                     <input
                         type="number"

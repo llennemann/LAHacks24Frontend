@@ -1,7 +1,8 @@
 import React from 'react';
-import Review from './Review';
-
+// import Review from './Review';
+import {useSelector} from 'react-redux';
 function Transport() {
+    const {loading,transport}=useSelector(state=>state.getTransport);
     let content;
     let in_flight;
     let out_flight;
