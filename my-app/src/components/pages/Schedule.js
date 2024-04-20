@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Rec from '../Rec';
 import Navbar from '../Navbar';
 
 function Schedule() {
