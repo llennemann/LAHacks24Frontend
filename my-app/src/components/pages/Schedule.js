@@ -10,7 +10,7 @@ function Schedule() {
 
   return (
     <div>
-      <h1>{city}</h1>
+      <h1>Add details for your trip to {city}!</h1>
       <Navbar/>
       <button>Done</button>
     </div>
