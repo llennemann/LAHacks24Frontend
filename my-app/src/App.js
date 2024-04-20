@@ -1,13 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import Map from './components/Map';
-import TopBar from './components/TopBar';
+import Home from './components/pages/Home';
+
 
 function App() {
   return (
     <div className="App">
-      <TopBar/>
-      <Map/>
+      <Home/>
     </div>
   );
 }
