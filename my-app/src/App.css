@@ -57,10 +57,10 @@ nav{
   justify-content: space-evenly;
 }
 
-#rec-list {
+#rec-list, #flight-list {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   align-items: stretch;
 }
 
@@ -93,7 +93,7 @@ button:hover {
   background-color: yellow;
 }
 
-#review {
+#review, #flight {
   border: 2px solid black;
   border-radius: 5px;
   margin:7px;
