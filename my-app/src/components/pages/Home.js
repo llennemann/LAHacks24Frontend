@@ -14,20 +14,17 @@ function Home() {
         {
             "name": 'LA',
             "budget": 100
-        }
+        },
+        {"name": "San Diego", 
+        "budget": 50}
     ]
 
     return (
         <div>
-            <div id="topbar">
-                <TopBar/>
-            </div>
+            <TopBar/>
             <div id="home-pg">
-                <div id="map">
                     <Map/>
-                </div>
                 <div id="sidebar">
-                    I am sidebar
                     <Sidebar data={sidebarData}/>
                 </div>
             </div>

@@ -17,8 +17,8 @@ function TopBar() {
 
     return (
         <nav>
-            <form>
-                <label>Location?
+            <form id='topbar'>
+                <label>Location
                     <input
                         type="text"
                         value={loc}

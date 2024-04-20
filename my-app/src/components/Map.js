@@ -10,7 +10,7 @@ function Map() {
       ]
 
     return (
-        <div >
+        <div id='map'>
             <MapContainer center={[51.505, -0.09]} zoom={2} scrollWheelZoom={false} style={{height: '100vh', width: '100vw'}}> 
             <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
