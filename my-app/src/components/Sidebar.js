@@ -1,25 +1,18 @@
 import React from "react";
-import ScrollableList from 'react-scrollable-list';
+// import ScrollableList from 'react-scrollable-list';
 
 function Sidebar({ data }) {
     return (
-        <div id="list-places">
+        <div id="sidebar">
             <h3>Places: </h3>
-            <div id="try2-list">
-                <ScrollableList
-                listItems={data}
-                heightOfItem={50}
-                maxItemsToRender={2}
-                scrollKey={'scrollableList'}
-                />
-            </div>
-            
+           <div>
             {data.map(place => (
-                <div id="place">
-                    <a href="">{place["name"]}</a>
+                <div class="places">
+                    <a href="/">{place["name"]}</a>
                     <p>{place["budget"]}</p>
                 </div>
             ))}
+            </div> 
         </div>
     )
 }

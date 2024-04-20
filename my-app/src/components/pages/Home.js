@@ -1,7 +1,7 @@
 import Map from '../Map';
 import TopBar from '../TopBar';
 import Sidebar from '../Sidebar';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 function Home() {
     // call API 
@@ -20,15 +20,13 @@ function Home() {
     ]
 
     return (
-        <div>
+        <div id="home-pg">
             <TopBar/>
-            <div id="home-pg">
-                    <Map/>
-                <div id="sidebar">
-                    <Sidebar data={sidebarData}/>
-                </div>
+            <div id="home-content">
+                <Map/>
+                <Sidebar data={sidebarData}/>
             </div>
-        </div>
+    </div>
     )
 }
 
