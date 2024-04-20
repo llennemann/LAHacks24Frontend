@@ -8,26 +8,23 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        // Dummy credentials
         const hardcodedCred = {
-            username: 'admin',
+            username: ['shrishti', 'utkarsh', 'lucy', 'jatin'],
             password: 'password123'
         };
 
-        // Check if entered credentials match the hardcoded ones
-        if (username === hardcodedCred.username && password === hardcodedCred.password) {
+        if (hardcodedCred.username.includes(username) && password === hardcodedCred.password) {
             console.log('Logged in');
-            navigate('/home'); // Navigate to the Home component
+            navigate('/home');
         } else {
             alert('Incorrect Username or Password!');
         }
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
+        <div className="login-container">
+            <form onSubmit={handleSubmit} className="login-form">
+                <h2>Login to your RoamBuddy</h2>
                 <label>
                     Username:
                     <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
@@ -45,3 +42,4 @@ function Login() {
 }
 
 export default Login;
+

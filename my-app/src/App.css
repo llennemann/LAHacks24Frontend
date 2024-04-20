@@ -120,3 +120,22 @@ button:hover {
 .profile-button:hover {
   background-color: #0056b3; /* Darker shade on hover for visual feedback */
 }
+
+.login-container {
+  height: 100vh; 
+  width: 100vw; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  background-image: url('/public/logoroam.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+}
+
+.login-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
