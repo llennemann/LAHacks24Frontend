@@ -6,8 +6,8 @@ function Sidebar({ data }) {
         <div id="sidebar">
             <h3>Places: </h3>
             {data.map((place, index) => (  
-                <div key={index} id="place">
-                    <Link to={`/schedule/${place.name}`}>{place.name}</Link>  
+                <div key={index} class="places">
+                    <p><Link to={`/schedule/${place.name}`}>{place.name}</Link>  </p>
                     <p>{place.budget}</p>
                 </div>
             ))}
