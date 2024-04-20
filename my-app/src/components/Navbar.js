@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Rec from './Rec'; // Adjust the import path as necessary
 import Transport from './Transport';
 import Food from './Food';
 import Poi from './Poi';
