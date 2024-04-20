@@ -1,27 +1,18 @@
 import React from "react";
-import ScrollableList from 'react-scrollable-list';
+import { Link } from 'react-router-dom';
 
 function Sidebar({ data }) {
     return (
         <div id="list-places">
             <h3>Places: </h3>
-            <div id="try2-list">
-                <ScrollableList
-                listItems={data}
-                heightOfItem={50}
-                maxItemsToRender={2}
-                scrollKey={'scrollableList'}
-                />
-            </div>
-            
-            {data.map(place => (
-                <div id="place">
-                    <a href="">{place["name"]}</a>
-                    <p>{place["budget"]}</p>
+            {data.map((place, index) => (  
+                <div key={index} id="place">
+                    <Link to={`/schedule/${place.name}`}>{place.name}</Link>  
+                    <p>{place.budget}</p>
                 </div>
             ))}
         </div>
-    )
+    );
 }
 
 export default Sidebar;
