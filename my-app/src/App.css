@@ -52,10 +52,10 @@ nav{
   justify-content: space-evenly;
 }
 
-#rec-list {
+#rec-list, #flight-list {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   align-items: stretch;
 }
 
@@ -88,10 +88,30 @@ button:hover {
   background-color: yellow;
 }
 
-#review {
+#review, #flight {
   border: 2px solid black;
   border-radius: 5px;
   margin:7px;
   padding:10px;
   text-align: left;
+}
+
+
+.profile-button {
+  border-radius: 50%;  
+  width: 50px;         
+  height: 50px;        
+  display: flex;      
+  align-items: center; 
+  justify-content: center;
+  border: none;     
+  background-color: black;
+  color: white;      
+  cursor: pointer;    
+  outline: none;      
+  font-size: 20px;
+}
+
+.profile-button:hover {
+  background-color: #0056b3; /* Darker shade on hover for visual feedback */
 }

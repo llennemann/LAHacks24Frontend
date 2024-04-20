@@ -49,12 +49,12 @@ const my_data =  {"data" : [
   switch (category) {
     case 'Transportation':
         // API calls here - depending on category
-        content = my_data["data"]
         // console.log(content[0].google_reviews)
+        content = ['Food1', 'Food2', 'Food3'];
+        reviews = [];
         break;
     case 'Food':
-      content = ['Food1', 'Food2', 'Food3'];
-      reviews = [];
+        content = my_data["data"]
       break;
     case 'Sightseeing':
       content = ['Sightseeing1', 'Sightseeing2', 'Sightseeing3'];
@@ -73,11 +73,11 @@ const my_data =  {"data" : [
     <div id='rec-list'>
         {content.map((place, index) => (
             <div key={index} id="rec">
-                Name: {place.place_name} 
+                {place.place_name} 
                 <br></br>
                 Hours: {place.hours}
                 <br></br>
-                Booking link: <a href={place.booking_link}>{place.booking_link}</a>
+                <a href={place.booking_link}>{place.booking_link}</a>
                 <br></br>
                 Reviews: <Review data={place.google_reviews}/>
             </div>

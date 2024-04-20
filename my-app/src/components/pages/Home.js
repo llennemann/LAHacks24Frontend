@@ -1,7 +1,8 @@
 import Map from '../Map';
 import TopBar from '../TopBar';
 import Sidebar from '../Sidebar';
-
+import Profile from './Profile';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function Home() {
     const sidebarData=[
@@ -23,6 +24,9 @@ function Home() {
                 <Map/>
                 <Sidebar data={sidebarData}/>
             </div>
+            <Routes>
+                <Route path="/profile" element={<Profile />} />
+            </Routes>
     </div>
     )
 }
