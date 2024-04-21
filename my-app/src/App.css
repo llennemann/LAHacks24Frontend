@@ -323,3 +323,8 @@ h1, h2, h3 {
   outline: none; /* Remove default focus outline */
 }
 
+.travel-diary {
+  font-size: 40px;
+  font-weight: bold;
+}
+
