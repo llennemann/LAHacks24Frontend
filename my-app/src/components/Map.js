@@ -17,7 +17,7 @@ function Map() {
 
     return (
         <div id='map'>
-            <MapContainer center={[34.0522, -118.2437]} zoom={2} scrollWheelZoom={false} style={{height: '90vh', width: '80vw'}}>
+            <MapContainer center={[34.0522, -118.2437]} zoom={2} scrollWheelZoom={false} style={{height: '70vh', width: '80vw'}}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
