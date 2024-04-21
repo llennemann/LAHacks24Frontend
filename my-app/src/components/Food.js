@@ -63,7 +63,7 @@ function Food() {
             </div>):
             (<div id='rec-list'>
                 {content.map((place, index) => (
-                    <div key={index} className="rec" onClick={(event)=>{makeSelection([...select,place]);document.getElementsByClassName('rec')[index].style.backgroundColor="#B8F8FE";}}>
+                    <div key={index} className="rec" onClick={(event)=>{makeSelection([...select,place]);document.getElementsByClassName('rec')[index].style.backgroundColor="";}}>
                         {place.place_name} 
                         <br></br>
                         Hours: {place.hours}
