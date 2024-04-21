@@ -15,7 +15,7 @@ function Schedule() {
     <div className='schedule-page'>
       <h1>Let's travel to {city}</h1>
       <Navbar/>
-      <button onClick={handleDone}>Done</button>  {/* Updated to handle navigation */}
+      <button className="button-spec" onClick={handleDone}>Done</button>  {/* Updated to handle navigation */}
     </div>
   );
 }
