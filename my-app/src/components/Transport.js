@@ -77,7 +77,7 @@ function Transport() {
                     <h3>Inbound:</h3>
                     <div id="inner-flight-boxes">
                         {transport['inbound_flights'].map((flight, index) => (
-                            <div key={index} className="flight_inbound" onClick={(event)=>{makeSelection({...select,inbound:{...flight,local_id:index}});document.getElementsByClassName('flight_inbound')[index].style.backgroundColor="green";}}>
+                            <div key={index} className="flight_inbound" onClick={(event)=>{makeSelection({...select,inbound:{...flight,local_id:index}});document.getElementsByClassName('flight_inbound')[index].style.backgroundColor="#B8F8FE";}}>
                                 <p>{flight.flight_operator}  {flight.flight_id}</p>
                                 <p>{flight.departure_airport_code} on {flight.departure_date} at {flight.departure_time}</p>
                                 <p>{flight.arrival_airport_code} on {flight.arrival_date} at {flight.arrival_time}</p>
@@ -90,7 +90,7 @@ function Transport() {
                     <h3>Outbound:</h3>
                     <div id="inner-flight-boxes">
                         {transport['outbound_flights'].map((flight, index) => (
-                            <div key={index} className="flight_outbound" onClick={(event)=>{makeSelection({...select,outbound:{...flight,local_id:index}});document.getElementsByClassName('flight_outbound')[index].style.backgroundColor="green";}}>
+                            <div key={index} className="flight_outbound" onClick={(event)=>{makeSelection({...select,outbound:{...flight,local_id:index}});document.getElementsByClassName('flight_outbound')[index].style.backgroundColor="#B8F8FE";}}>
                             <p>{flight.flight_operator}  {flight.flight_id}</p>
                             <p>{flight.departure_airport_code} on {flight.departure_date} at {flight.departure_time}</p>
                             <p>{flight.arrival_airport_code} on {flight.arrival_date} at {flight.arrival_time}</p>

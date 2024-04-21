@@ -261,8 +261,3 @@ h1, h2, h3 {
   display: flex;
   flex-direction: row;
 }
-
-#done-button {
-  bottom: 0;
-  position: absolute;
-}

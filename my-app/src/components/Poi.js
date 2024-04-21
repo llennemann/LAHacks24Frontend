@@ -40,7 +40,7 @@ function Poi() {
             loading===false && poi!==undefined?
             (<div id='rec-list'>
                 {poi.map((place, index) => (
-                    <div key={index} className="rec" onClick={(event)=>makeSelection([...select,place])}>
+                    <div key={index} className="rec" onClick={(event)=>{makeSelection([...select,place]);document.getElementsByClassName('rec')[index].style.backgroundColor="";}}>
                         {place.name} 
                         <br></br>
                         <p>Address {place.address}</p>
