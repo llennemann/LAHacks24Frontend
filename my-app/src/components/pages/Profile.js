@@ -14,6 +14,9 @@ const UserProfile = () => {
 
   return (
     <div className="container">
+       <div className='profile-heading'>
+            <h2>My Profile</h2>
+        </div> 
       <div className="profile">
         <img src={ProfilePic} alt="Profile" className="profile-pic" />
         <h2>Gene Block</h2>
