@@ -8,10 +8,10 @@ function Schedule() {
   // call API here, return JSON data of recommendations
 
   return (
-    <div>
+    <div className="whole-page">
       <h1>Let's travel to {city}</h1>
       <Navbar/>
-      <button>Done</button>
+      <button className="button-spec">Done</button>
     </div>
   );
 }

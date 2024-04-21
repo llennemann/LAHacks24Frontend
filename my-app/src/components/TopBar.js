@@ -7,6 +7,7 @@ import { FaSearch } from "react-icons/fa";
 function TopBar() {
     const {loading,places}=useSelector(state=>state.getPlaces)
     var date=new Date()
+    console.log('here date')
     const [loc, setLoc] = useState("");
     const [startDate, setStartDate] = useState(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`);
     const [endDate, setEndDate] = useState("");
@@ -35,6 +36,7 @@ function TopBar() {
                 <i className="fas fa-user"></i>
             </button>
             <h2 id="title">RoamBuddy</h2>
+            <p id = "para"> Make your travel worry-free with your roamBuddy!</p>
             <form id='topbar'>
                 <label>Departure 
                     <input
