@@ -45,7 +45,7 @@ function Stays() {
             loading===false && stays!==undefined?
             (<div id='rec-list'>
                 {stays.map((place, index) => (
-                    <div key={index} className="rec" onClick={(event)=>makeSelection([...select,place])}>
+                    <div key={index} className="rec" onClick={(event)=>{makeSelection([...select,place]);document.getElementsByClassName('rec')[index].style.backgroundColor="#B8F8FE";}}>
                         {place.name} 
                         <br></br>
                         {place.address}

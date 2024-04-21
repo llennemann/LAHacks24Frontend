@@ -50,7 +50,7 @@ function Food() {
             loading===false && food!=undefined?
           (  <div id='rec-list'>
                 {food.map((place, index) => (
-                    <div key={index} className="rec">
+                    <div key={index} className="rec" onClick={(event)=>{makeSelection([...select,place]);document.getElementsByClassName('rec')[index].style.backgroundColor="#B8F8FE";}}>
                         {place.name} 
                         <br></br>
                         Address: {place.address}
@@ -63,7 +63,7 @@ function Food() {
             </div>):
             (<div id='rec-list'>
                 {content.map((place, index) => (
-                    <div key={index} className="rec">
+                    <div key={index} className="rec" onClick={(event)=>{makeSelection([...select,place]);document.getElementsByClassName('rec')[index].style.backgroundColor="#B8F8FE";}}>
                         {place.place_name} 
                         <br></br>
                         Hours: {place.hours}
