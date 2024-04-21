@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // import Review from './Review';
 import {useSelector} from 'react-redux';
+
 function Transport() {
     // source,destination-city,start-end date so just get the use selector for places
     const {loading,transport}=useSelector(state=>state.getTransport);
+    const [select,makeSelection]=useState([])
     console.log(transport)
     let content;
     let in_flight;
     let out_flight;
-
+    useEffect(()=>{
+        localStorage.setItem('transport',JSON.stringify(select));
+    })
     const my_data = {
     "data": [
         {
@@ -71,14 +75,12 @@ function Transport() {
         return (
             loading===false && transport!==undefined?
             ( 
-            //    transport.map((t,i)=>{
-                //    return 
                 <div id="all-flights">
                 <div id="flight-list">
                     <h3>Inbound:</h3>
                     <div id="inner-flight-boxes">
-                        {transport['inbound_flight'].map((flight, index) => (
-                            <div key={index} id="flight">
+                        {transport['inbound_flights'].map((flight, index) => (
+                            <div key={index} className="flight_inbound" onClick={(event)=>makeSelection({...select,inbound:{...flight,local_id:index}})}>
                                 <p>{flight.flight_operator}  {flight.flight_id}</p>
                                 <p>{flight.departure_airport_code} on {flight.depart_date} at {flight.departure_time}</p>
                                 <p>{flight.arrival_airport_code} on {flight.arrival_date} at {flight.arrival_time}</p>
@@ -90,8 +92,8 @@ function Transport() {
                 <div id="flight-list">
                     <h3>Outbound:</h3>
                     <div id="inner-flight-boxes">
-                        {transport['outbound_flight'].map((flight, index) => (
-                            <div key={index} id="flight">
+                        {transport['outbound_flights'].map((flight, index) => (
+                            <div key={index} className="flight_outbound" onClick={(event)=>makeSelection({...select,outbound:{...flight,local_id:index}})}>
                             <p>{flight.flight_operator}  {flight.flight_id}</p>
                             <p>{flight.departure_airport_code} on {flight.depart_date} at {flight.departure_time}</p>
                             <p>{flight.arrival_airport_code} on {flight.arrival_date} at {flight.arrival_time}</p>
@@ -107,7 +109,7 @@ function Transport() {
                     <h3>Inbound:</h3>
                     <div id="inner-flight-boxes">
                         {in_flight.map((flight, index) => (
-                            <div key={index} id="flight">
+                            <div key={index} className="flight_inbound">
                                 <p>{flight.airline}</p>
                                 <p>{flight.departure_airport} to {flight.arrival_airport}</p>
                             </div>
@@ -118,7 +120,7 @@ function Transport() {
                     <h3>Outbound:</h3>
                     <div id="inner-flight-boxes">
                         {out_flight.map((flight, index) => (
-                            <div key={index} id="flight">
+                            <div key={index} className="flight_outbound">
                                 <p>{flight.airline}</p>
                                 <p>{flight.departure_airport} to {flight.arrival_airport}</p>
                             </div>
