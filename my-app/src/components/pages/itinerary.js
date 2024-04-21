@@ -6,7 +6,7 @@ function Itinerary() {
             <div className="content-box">
                 <h2>YOUR TRAVEL DIARY:</h2>
                 <p>ADD TEXT FROM GEMINI ITINERARY HERE</p>
-                <button className="share-button">Share to friends</button> 
+                <button className="share-button">Share or Download </button> 
             </div>
         </div>
     );
