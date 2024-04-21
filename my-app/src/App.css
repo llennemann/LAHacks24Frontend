@@ -116,7 +116,7 @@ input {
   color: black; 
   flex: 5;
   text-align: center;
-  line-height: 20px;
+  line-height: 17px;
 }
 
 #button-list {
@@ -200,7 +200,15 @@ button:hover {
   background-color: yellow;
 }
 
-#review, .flight_inbound , .flight_outbound {
+#review {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin:7px;
+  padding:10px;
+  text-align: left;
+}
+
+.flight_inbound , .flight_outbound {
   border: 2px solid black;
   border-radius: 5px;
   margin:7px;
@@ -260,6 +268,14 @@ h1, h2, h3 {
   flex-direction: row;
 }
 
+#review-list {
+  margin: 13px;
+  text-align: left;
+}
+
+#header-travel {
+  text-align: center;
+}
 .itinerary-page {
   position: relative;
   width: 100%;

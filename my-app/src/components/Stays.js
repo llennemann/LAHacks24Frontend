@@ -44,15 +44,15 @@ function Stays() {
             (<div id='rec-list'>
                 {stays.map((place, index) => (
                     <div key={index} className="rec" onClick={(event)=>{makeSelection([...select,place]);document.getElementsByClassName('rec')[index].style.backgroundColor="#B8F8FE";}}>
-                        {place.name} 
+                        <p style={{'fontWeight': 'bold'}}>{place.name}</p>
                         <br></br>
                         {place.address}
                         <br></br>
                         {place.price}
                         <br></br>
-                        <a href={place}>{place.booking_link}</a>
+                        <a href={place}>Booking Link</a>
                         <br></br>
-                        Reviews: <ReviewNoRating data={place.reviews}/>
+                        <ReviewNoRating data={place.reviews}/>
                     </div>
                 ))}
             </div>):
