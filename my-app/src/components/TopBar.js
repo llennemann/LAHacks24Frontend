@@ -21,6 +21,7 @@ function TopBar() {
         let data={
             loc,startDate,endDate,home,budget
         }
+        localStorage.setItem('formfields',JSON.stringify(data))
         dispatch(getPlacesAction(data))
     }
 

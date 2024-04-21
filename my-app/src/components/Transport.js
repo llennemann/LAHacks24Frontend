@@ -2,7 +2,9 @@ import React from 'react';
 // import Review from './Review';
 import {useSelector} from 'react-redux';
 function Transport() {
+    // source,destination-city,start-end date so just get the use selector for places
     const {loading,transport}=useSelector(state=>state.getTransport);
+    console.log(transport)
     let content;
     let in_flight;
     let out_flight;
@@ -67,7 +69,39 @@ function Transport() {
         out_flight = my_data["data"][0]["outbound_flights"] // an array of dicts
 
         return (
-            <div id="all-flights">
+            loading===false && transport!==undefined?
+            ( 
+            //    transport.map((t,i)=>{
+                //    return 
+                <div id="all-flights">
+                <div id="flight-list">
+                    <h3>Inbound:</h3>
+                    <div id="inner-flight-boxes">
+                        {transport['inbound_flight'].map((flight, index) => (
+                            <div key={index} id="flight">
+                                <p>{flight.flight_operator}  {flight.flight_id}</p>
+                                <p>{flight.departure_airport_code} on {flight.depart_date} at {flight.departure_time}</p>
+                                <p>{flight.arrival_airport_code} on {flight.arrival_date} at {flight.arrival_time}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div id="flight-list">
+                    <h3>Outbound:</h3>
+                    <div id="inner-flight-boxes">
+                        {transport['outbound_flight'].map((flight, index) => (
+                            <div key={index} id="flight">
+                            <p>{flight.flight_operator}  {flight.flight_id}</p>
+                            <p>{flight.departure_airport_code} on {flight.depart_date} at {flight.departure_time}</p>
+                            <p>{flight.arrival_airport_code} on {flight.arrival_date} at {flight.arrival_time}</p>
+                        </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            )
+            :(
+                <div id="all-flights">
                 <div id="flight-list">
                     <h3>Inbound:</h3>
                     <div id="inner-flight-boxes">
@@ -91,6 +125,7 @@ function Transport() {
                     </div>
                 </div>
             </div>
+            )
             // <div id='rec-list'>
             //     {content.map((place, index) => (
             //         <div key={index} id="rec">
