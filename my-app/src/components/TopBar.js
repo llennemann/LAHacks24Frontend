@@ -2,7 +2,7 @@ import { useState } from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import { getPlacesAction } from '../actions/homeactions';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-
+import { FaSearch } from "react-icons/fa";
 
 function TopBar() {
     const {loading,places}=useSelector(state=>state.getPlaces)
@@ -30,6 +30,10 @@ function TopBar() {
 
     return (
         <nav>
+            <h2 id="title">RoamBuddy</h2>
+            <button type="button" onClick={handleProfileClick} className="profile-button">
+                <i className="fas fa-user"></i>
+            </button>
             <form id='topbar'>
                 <label>Departure 
                     <input
@@ -61,10 +65,10 @@ function TopBar() {
                         value={budget}
                         onChange={(e) => setBudget(e.target.value)} />
                 </label>
-                <input type="submit" onClick={handleSubmit} />
-                <button type="button" onClick={handleProfileClick} className="profile-button">
-                    <i className="fas fa-user"></i>
-                </button>
+                
+                <button type="submit" id="search-button" onClick={handleSubmit}>
+                    <FaSearch size="25px" color="blue"/>
+                </button>   
             </form>
         </nav>
     );
