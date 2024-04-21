@@ -3,7 +3,7 @@ function ReviewNoRating({ data }) {
         <div id="review-list">
             {data?.map((rev, index) => (
                 <div key={index} id="review">
-                    <p>{rev}</p>
+                    <p>{rev['name']}:{rev['review']}</p>
                 </div>
             ))}
         </div>

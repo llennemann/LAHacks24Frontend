@@ -1,11 +1,12 @@
 import React from 'react';
 import Review from './Review';
 import ReviewNoRating from './ReviewNoRating';
+import {useSelector} from 'react-redux';
 
 function Poi() {
     let content;
     let reviews;
-
+    const {loading,poi}=useSelector(state=>state.getPOI)
     const my_data =  {
         "data" : [
         {
@@ -35,9 +36,22 @@ function Poi() {
         content = my_data["data"]
 
         return (
-            <div id='rec-list'>
+            loading===false && poi!==undefined?
+            (<div id='rec-list'>
+                {poi.map((place, index) => (
+                    <div key={index} className="rec">
+                        {place['name']} 
+                        <br></br>
+                        Hours: {place['hours']}
+                        <br></br>
+                        <a href={place['link']}>{place['link']}</a>
+                        <br></br>
+                        Reviews: <ReviewNoRating data={place['reviews']}/>
+                    </div>
+                ))}
+            </div>):<div id='rec-list'>
                 {content.map((place, index) => (
-                    <div key={index} id="rec">
+                    <div key={index} className="rec">
                         {place.name} 
                         <br></br>
                         Hours: {place.hours}

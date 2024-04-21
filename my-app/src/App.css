@@ -9,6 +9,10 @@ input {
   width: 80%;
 }
 
+.whole-page {
+  margin: 20px;
+}
+
 #title {
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: center;
@@ -71,7 +75,7 @@ input {
 }
 
 .places {
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
   margin:7px;
   padding:4px;
@@ -90,14 +94,21 @@ input {
   justify-content: space-evenly;
 }
 
-#rec-list, #flight-list {
+#flight-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#rec-list {
   display: flex;
   flex-direction: row;
   /* justify-content: flex-end; */
   align-items: stretch;
 }
 
-#rec {
+.rec {
   border: 1px solid black;
   border-radius: 5px;
   margin:20px;
@@ -112,6 +123,7 @@ input {
 #button-list {
   display: flex;
   justify-content: space-evenly;
+  margin: 40px;
 }
 
 button {
@@ -122,11 +134,74 @@ button {
   background-color: palegreen;
 }
 
+/* <!-- HTML !-->
+<button class="button-56" role="button">Button 56</button> */
+
+/* CSS */
+.button-spec {
+  align-items: center;
+  background-color: #B8F8FE;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-spec:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-spec:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-spec:active {
+  background-color: #B8F8FE;
+  outline: 0;
+}
+
+.button-spec:hover {
+  outline: 0;
+  background-color: #D7FBFE;
+}
+
+@media (min-width: 768px) {
+  .button-spec {
+    padding: 0 40px;
+  }
+}
+
 button:hover {
   background-color: yellow;
 }
 
-#review, #flight {
+#review, .flight_inbound , .flight_outbound {
   border: 2px solid black;
   border-radius: 5px;
   margin:7px;
@@ -175,4 +250,13 @@ button:hover {
 h3 {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#inner-flight-boxes {
+  display: flex;
+  flex-direction: row;
 }
