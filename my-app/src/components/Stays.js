@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import Review from './Review';
 import ReviewNoRating from './ReviewNoRating';
+import {useSelector} from 'react-redux';
 
 function Stays() {
     let content;
     let reviews;
-
+    const {loading,stays}=useSelector(state=>state.getStays)
+    console.log(stays)
+    const [stay,setStay]=useState({})
     const my_data =  {
         "data": [
          {

@@ -41,7 +41,7 @@ function Poi() {
             loading===false && poi!==undefined?
             (<div id='rec-list'>
                 {poi.map((place, index) => (
-                    <div key={index} className="rec" onClick={(event)=>makeSelection({...select,outbound:{...place,local_id:index}})}>
+                    <div key={index} className="rec" onClick={(event)=>makeSelection([...select,place])}>
                         {place['name']} 
                         <br></br>
                         Hours: {place['hours']}

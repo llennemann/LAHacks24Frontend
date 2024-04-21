@@ -16,7 +16,7 @@ export const getTransportAction=(d)=>async(dispatch,getState)=>{
     try {
         dispatch({type:GET_TRANSPORT_REQUEST,payload:[]})
         var {data}= await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gemini/places/transportation?source=${d.home}&destination=${d.destination}&start_date=${d.startDate}&return_date=${d.endDate}`)
-        dispatch({type:GET_TRANSPORT_SUCCESS,payload:data.data})
+        dispatch({type:GET_TRANSPORT_SUCCESS,payload:data})
         localStorage.setItem('transport',JSON.stringify(getState().getTransport))
     } catch (error) {
         console.log(error)
@@ -26,7 +26,7 @@ export const getTransportAction=(d)=>async(dispatch,getState)=>{
 export const getStaysAction=(d)=>async(dispatch,getState)=>{
     try {
         dispatch({type:GET_STAYS_REQUEST,payload:[]})
-        var {data}= await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gemini/places/stays?current_location=${d.current_location}&places=${d.places}&checkin_date=${d.startDate}&checkout_date=${d.endDate}`)
+        var {data}= await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gemini/places/stays?current_location=${d.arrival_airport}&places=${d.places}&checkin_date=${d.startDate}&checkout_date=${d.endDate}`)
         dispatch({type:GET_STAYS_SUCCESS,payload:data.data})
         localStorage.setItem('stays',JSON.stringify(getState().getStays))
     } catch (error) {
