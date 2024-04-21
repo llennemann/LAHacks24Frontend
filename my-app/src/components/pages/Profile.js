@@ -7,19 +7,19 @@ import ProfilePic from "./profile.jpg"
 const UserProfile = () => {
   const userData = {
     profilePic: './profile.jpg',
-    bio: 'I am a passionate traveler and explorer.',
+    bio: 'I am a passionate traveler and explorer. I love exploring new places, specially the dark corners of Boelter Hall',
     followers: 1269,
     interests: ['Hiking', 'Photography', 'Camping'],
   };
 
   return (
     <div className="container">
-       <div className='profile-heading'>
-            <h2>My Profile</h2>
-        </div> 
       <div className="profile">
+        <div className='profile-heading'>
+              <h1>Profile</h1>
+        </div> 
         <img src={ProfilePic} alt="Profile" className="profile-pic" />
-        <h2>Gene Block</h2>
+        <h2>Gene Block (He/Him)</h2>
         <p>{userData.bio}</p>
         <p>Followers: {userData.followers}</p>
         <p>Interests:</p>
@@ -30,6 +30,9 @@ const UserProfile = () => {
         </ul>
       </div>
       <div className="map-container">
+        <div className='map-heading'>
+            <h1>My Travels</h1>
+        </div> 
         {/* <div id="map"></div> */}
         <Map />
       </div>
