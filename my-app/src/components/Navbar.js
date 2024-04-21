@@ -64,17 +64,10 @@ function Navbar() {
   return (
     <div>
       <div id="button-list">
-<<<<<<< HEAD
         <button onClick={() => {getData('Transportation',transportData);setSelectedCategory('Transportation');}}>Transportation</button>
         <button onClick={() => {getData('Points of interest',transportData);setSelectedCategory('Points of interest');}}>Points of interest</button>
         <button onClick={() => {getData('Stays',stayInput);setSelectedCategory('Stays');}}>Stays</button>
         <button onClick={() => {getData('Food',{});setSelectedCategory('Food');}}>Food</button>
-=======
-        <button className="button-spec" onClick={() => {getData('Transportation',transportData);setSelectedCategory('Transportation');}}>Transportation</button>
-        <button className="button-spec" onClick={() => {getData('Points of interest',transportData);setSelectedCategory('Points of interest');}}>Points of interest</button>
-        {/* <button onClick={() => {getData('Stays',{...poi,flight['inbound']['arrival_airport']});setSelectedCategory('Stays');}}>Stays</button> */}
-        <button className="button-spec" onClick={() => {getData('Food',{});setSelectedCategory('Food');}}>Food</button>
->>>>>>> ade2a37098805ebaa5c0c250429e25c3aadbab8c
       </div>
       {renderComponent()}
       {/* <Rec category={selectedCategory} /> */}
