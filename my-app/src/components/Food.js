@@ -3,7 +3,6 @@ import Review from './Review';
 import {useSelector} from 'react-redux'
 function Food() {
     let content;
-    let reviews;
     const {loading,food}=useSelector(state=>state.getFood);
     const [select,makeSelection]=useState([])
     const my_data =  {
@@ -47,7 +46,7 @@ function Food() {
         content = my_data["data"]
 
         return (
-            loading===false && food!=undefined?
+            loading===false && food!==undefined?
           (  <div id='rec-list'>
                 {food.map((place, index) => (
                     <div key={index} className="rec">
@@ -61,19 +60,24 @@ function Food() {
                     </div>
                 ))}
             </div>):
-            (<div id='rec-list'>
-                {content.map((place, index) => (
-                    <div key={index} className="rec">
-                        {place.place_name} 
-                        <br></br>
-                        Hours: {place.hours}
-                        <br></br>
-                        <a href={place.booking_link}>{place.booking_link}</a>
-                        <br></br>
-                        Reviews: <Review data={place.google_reviews}/>
-                    </div>
-                ))}
-            </div>)
+            (
+                <div>
+                <div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>
+                </div>
+            // <div id='rec-list'>
+            //     {content.map((place, index) => (
+            //         <div key={index} className="rec">
+            //             {place.place_name} 
+            //             <br></br>
+            //             Hours: {place.hours}
+            //             <br></br>
+            //             <a href={place.booking_link}>{place.booking_link}</a>
+            //             <br></br>
+            //             Reviews: <Review data={place.google_reviews}/>
+            //         </div>
+            //     ))}
+            // </div>
+            )
           );
 
 }

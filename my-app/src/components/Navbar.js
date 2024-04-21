@@ -16,7 +16,6 @@ function Navbar() {
   pathname=pathname.split('/')[2]
   var transportData={destination:pathname,...formfields}
   let flight=JSON.parse(localStorage.getItem('flights'))
-  let stays=JSON.parse(localStorage.getItem('stay_selected'))
  
   
 

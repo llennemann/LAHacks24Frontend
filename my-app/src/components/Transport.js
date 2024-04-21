@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
-// import Review from './Review';
 import {useSelector} from 'react-redux';
-import { FaLongArrowAltRight } from "react-icons/fa";
 
 
 function Transport() {
-    // source,destination-city,start-end date so just get the use selector for places
     const {loading,transport}=useSelector(state=>state.getTransport);
     const [select,makeSelection]=useState([])
-    // console.log(transport)
-    let content;
+    
     let in_flight;
     let out_flight;
     
@@ -67,8 +63,6 @@ function Transport() {
             }
         ]
         }
-
-        content = my_data["data"]
         in_flight = my_data["data"][0]["inbound_flight"] // an array of dicts
         out_flight = my_data["data"][0]["outbound_flight"] // an array of dicts
 
@@ -107,44 +101,10 @@ function Transport() {
             </div>
             )
             :(
-                <div id="all-flights">
-                <div id="flight-list">
-                    <h3>Inbound:</h3>
-                    <div id="inner-flight-boxes">
-                        {in_flight.map((flight, index) => (
-                            <div key={index} className="flight_inbound">
-                                <p>{flight.airline}</p>
-                                <p>{flight.departure_airport} to {flight.arrival_airport}</p>
-                            </div>
-                        ))}
-                    </div>
+                <div>
+                <div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>
                 </div>
-                <div id="flight-list">
-                    <h3>Outbound:</h3>
-                    <div id="inner-flight-boxes">
-                        {out_flight.map((flight, index) => (
-                            <div key={index} className="flight_outbound">
-                                <p>{flight.airline}</p>
-                                <p>{flight.departure_airport} to {flight.arrival_airport}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
             )
-            // <div id='rec-list'>
-            //     {content.map((place, index) => (
-            //         <div key={index} id="rec">
-            //             {place.place_name} 
-            //             <br></br>
-            //             Hours: {place.hours}
-            //             <br></br>
-            //             <a href={place.booking_link}>{place.booking_link}</a>
-            //             <br></br>
-            //             Reviews: <Review data={place.google_reviews}/>
-            //         </div>
-            //     ))}
-            // </div>
           );
 
 }

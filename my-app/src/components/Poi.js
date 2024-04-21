@@ -50,19 +50,22 @@ function Poi() {
                         Reviews <ReviewNoRating data={place.reviews}/>
                     </div>
                 ))}
-            </div>):<div id='rec-list'>
-                {content.map((place, index) => (
-                    <div key={index} className="rec">
-                        {place.name} 
-                        <br></br>
-                        Hours: {place.hours}
-                        <br></br>
-                        <a href={place.link}>{place.link}</a>
-                        <br></br>
-                        Reviews <ReviewNoRating data={place.reviews}/>
-                    </div>
-                ))}
-            </div>
+            </div>):<div>
+                <div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>
+                </div>
+            // <div id='rec-list'>
+            //     {content.map((place, index) => (
+            //         <div key={index} className="rec">
+            //             {place.name} 
+            //             <br></br>
+            //             Hours: {place.hours}
+            //             <br></br>
+            //             <a href={place.link}>{place.link}</a>
+            //             <br></br>
+            //             Reviews <ReviewNoRating data={place.reviews}/>
+            //         </div>
+            //     ))}
+            // </div>
           );
 
 }

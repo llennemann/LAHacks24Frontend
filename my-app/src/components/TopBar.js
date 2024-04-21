@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import {useDispatch,useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import { getPlacesAction } from '../actions/homeactions';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { FaSearch } from "react-icons/fa";
 
 function TopBar() {
-    const {loading,places}=useSelector(state=>state.getPlaces)
     var date=new Date()
     const [loc, setLoc] = useState("");
     const [startDate, setStartDate] = useState(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`);
