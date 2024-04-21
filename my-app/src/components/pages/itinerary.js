@@ -1,8 +1,15 @@
-function itinerary () {
-    return(
-        <div className="schedule-page">
-            <h2>Itinerary</h2>
+import React from 'react';
+
+function Itinerary() {
+    return (
+        <div className="itinerary-page">
+            <div className="content-box">
+                <h2>YOUR TRAVEL DIARY:</h2>
+                <p>ADD TEXT FROM GEMINI ITINERARY HERE</p>
+                <button className="share-button">Share to friends</button> 
+            </div>
         </div>
-    )
+    );
 }
-export default itinerary;
+
+export default Itinerary;

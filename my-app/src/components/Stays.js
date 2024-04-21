@@ -1,11 +1,9 @@
 import React, { useState,useEffect } from 'react';
-import Review from './Review';
 import ReviewNoRating from './ReviewNoRating';
 import {useSelector} from 'react-redux';
 
 function Stays() {
     let content;
-    let reviews;
     const {loading,stays}=useSelector(state=>state.getStays)
     const [select,makeSelection]=useState([])
     const my_data =  {
@@ -57,19 +55,23 @@ function Stays() {
                         <ReviewNoRating data={place.reviews}/>
                     </div>
                 ))}
-            </div>):<div id='rec-list'>
-                {content.map((place, index) => (
-                    <div key={index} className="rec">
-                        <p style={{'fontWeight': 'bold'}}>{place.name}</p>
-                        <br></br>
-                        {place.address}
-                        <br></br>
-                        <a href={place["booking link"]}>Booking Link</a>
-                        <br></br>
-                        <ReviewNoRating data={place["top 3 google reviews"]}/>
-                    </div>
-                ))}
+            </div>):
+            <div>
+            <div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>
             </div>
+            // <div id='rec-list'>
+            //     {content.map((place, index) => (
+            //         <div key={index} className="rec">
+            //             {place.name} 
+            //             <br></br>
+            //             {place.address}
+            //             <br></br>
+            //             <a href={place["booking link"]}>{place["booking link"]}</a>
+            //             <br></br>
+            //             Reviews: <ReviewNoRating data={place["top 3 google reviews"]}/>
+            //         </div>
+            //     ))}
+            // </div>
           );
 
 }
