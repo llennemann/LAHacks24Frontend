@@ -9,8 +9,9 @@ nav{
   top: 0;
   display: flex;
   justify-content: space-between ;
-  background-color: aliceblue;
+  background-color: white;
   padding: 30px;
+  margin: 10px;
 }
 
 #home-pg{
