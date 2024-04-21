@@ -16,14 +16,8 @@ function Navbar() {
   pathname=pathname.split('/')[2]
   var transportData={destination:pathname,...formfields}
   let flight=JSON.parse(localStorage.getItem('flights'))
-  let stayInput={
-    "place":JSON.parse(localStorage.getItem('poi_selected')),
-    "arrival_airport":flight.inbound.arrival_airport_code,
-    'startDate':formfields.startDate,
-    'endDate':formfields.endDate
-  }
-  // steps get destination here, and the other details for the location here.
-  // we need to make variables and reduers for the transportaion, food,stays
+  let stays=JSON.parse(localStorage.getItem('stay_selected'))
+ 
   
 
   const renderComponent = () => {
@@ -42,13 +36,12 @@ function Navbar() {
   };
 
     const getData=(category,data)=>{
-      // console.log(data)
       switch (category) {
         case 'Transportation':
           dispatch(getTransportAction(data))
           return 1;
         case 'Food':
-          dispatch(getFoodAction())
+          dispatch(getFoodAction(data))
           return 1;
         case 'Stays':
           dispatch(getStaysAction(data))
@@ -66,8 +59,12 @@ function Navbar() {
       <div id="button-list">
         <button onClick={() => {getData('Transportation',transportData);setSelectedCategory('Transportation');}}>Transportation</button>
         <button onClick={() => {getData('Points of interest',transportData);setSelectedCategory('Points of interest');}}>Points of interest</button>
-        <button onClick={() => {getData('Stays',stayInput);setSelectedCategory('Stays');}}>Stays</button>
-        <button onClick={() => {getData('Food',{});setSelectedCategory('Food');}}>Food</button>
+        <button onClick={() => {getData('Stays',{
+    "arrival_airport":flight.inbound.arrival_airport_code,
+    'startDate':formfields.startDate,
+    'endDate':formfields.endDate
+  });setSelectedCategory('Stays');}}>Stays</button>
+        <button onClick={() => {getData('Food',{"loc":formfields.loc,});setSelectedCategory('Food');}}>Food</button>
       </div>
       {renderComponent()}
       {/* <Rec category={selectedCategory} /> */}

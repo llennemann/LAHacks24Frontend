@@ -27,7 +27,7 @@ export const getStaysAction=(d)=>async(dispatch,getState)=>{
     try {
         dispatch({type:GET_STAYS_REQUEST,payload:[]})
         var {data}= await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gemini/places/stays?current_location=${d.arrival_airport}&places=${d.places}&checkin_date=${d.startDate}&checkout_date=${d.endDate}`)
-        dispatch({type:GET_STAYS_SUCCESS,payload:data.data})
+        dispatch({type:GET_STAYS_SUCCESS,payload:data})
         localStorage.setItem('stays',JSON.stringify(getState().getStays))
     } catch (error) {
         dispatch({type:GET_STAYS_FAILED})
@@ -37,7 +37,7 @@ export const getFoodAction=(d)=>async(dispatch,getState)=>{
     try {
         dispatch({type:GET_FOOD_REQUEST,payload:[]})
         var {data}= await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gemini/places/food?stay=${d.stay}&destination=${d.loc}&places=${d.places}&checkin_date=${d.startDate}&checkout_date=${d.endDate}`)
-        dispatch({type:GET_FOOD_SUCCESS,payload:data.data})
+        dispatch({type:GET_FOOD_SUCCESS,payload:data})
         localStorage.setItem('food',JSON.stringify(getState().getFood))
     } catch (error) {
         dispatch({type:GET_FOOD_FAILED})
@@ -46,8 +46,8 @@ export const getFoodAction=(d)=>async(dispatch,getState)=>{
 export const getPOIAction=(d)=>async(dispatch,getState)=>{
     try {
         dispatch({type:GET_POI_REQUEST,payload:[]})
-        var {data}= await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gemini/places/poi?destination=${d.destination}&start_date=${d.startDate}&return_date=${d.endDate}`)        
-        dispatch({type:GET_POI_SUCCESS,payload:data.data})
+        var {data}= await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gemini/places/poi?destination=${d.destination}&start_date=${d.startDate}&return_date=${d.endDate}`)
+        dispatch({type:GET_POI_SUCCESS,payload:data})
         localStorage.setItem('pois',JSON.stringify(getState().getPOI))
     } catch (error) {
         dispatch({type:GET_POI_FAILED})

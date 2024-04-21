@@ -1,12 +1,13 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Review from './Review';
-
+import {useSelector} from 'react-redux'
 function Food() {
     let content;
     let reviews;
-
+    const {loading,food}=useSelector(state=>state.getFood);
+    const [select,makeSelection]=useState([])
     const my_data =  {
-                        "data" : [
+            "data" : [
             {
             "place_name": "Levain Bakery",
             "location": {
@@ -46,9 +47,23 @@ function Food() {
         content = my_data["data"]
 
         return (
-            <div id='rec-list'>
+            loading===false && food!=undefined?
+          (  <div id='rec-list'>
+                {food.map((place, index) => (
+                    <div key={index} className="rec">
+                        {place.name} 
+                        <br></br>
+                        Address: {place.address}
+                        <br></br>
+                        <p>Type of Food: {place.type_of_food}</p>
+                        <br></br>
+                        Reviews: <Review data={place.reviews}/>
+                    </div>
+                ))}
+            </div>):
+            (<div id='rec-list'>
                 {content.map((place, index) => (
-                    <div key={index} id="rec">
+                    <div key={index} className="rec">
                         {place.place_name} 
                         <br></br>
                         Hours: {place.hours}
@@ -58,7 +73,7 @@ function Food() {
                         Reviews: <Review data={place.google_reviews}/>
                     </div>
                 ))}
-            </div>
+            </div>)
           );
 
 }

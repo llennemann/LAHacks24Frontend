@@ -6,13 +6,11 @@ function Transport() {
     // source,destination-city,start-end date so just get the use selector for places
     const {loading,transport}=useSelector(state=>state.getTransport);
     const [select,makeSelection]=useState([])
-    console.log(transport)
+    // console.log(transport)
     let content;
     let in_flight;
     let out_flight;
-    useEffect(()=>{
-        localStorage.setItem('flights',JSON.stringify(select));
-    },[select])
+    
     const my_data = {
     "data": [
         {
@@ -72,6 +70,9 @@ function Transport() {
         in_flight = my_data["data"][0]["inbound_flight"] // an array of dicts
         out_flight = my_data["data"][0]["outbound_flight"] // an array of dicts
 
+        useEffect(()=>{
+            localStorage.setItem('flights',JSON.stringify(select));
+        },[select])
         return (
             loading===false && transport!==undefined?
             ( 
@@ -92,7 +93,7 @@ function Transport() {
                 <div id="flight-list">
                     <h3>Outbound:</h3>
                     <div id="inner-flight-boxes">
-                        {transport['outbound_flight'].map((flight, index) => (
+                        {transport['outbound_flights'].map((flight, index) => (
                             <div key={index} className="flight_outbound" onClick={(event)=>{makeSelection({...select,outbound:{...flight,local_id:index}});document.getElementsByClassName('flight_outbound')[index].style.backgroundColor="green";}}>
                             <p>{flight.flight_operator}  {flight.flight_id}</p>
                             <p>{flight.departure_airport_code} on {flight.departure_date} at {flight.departure_time}</p>

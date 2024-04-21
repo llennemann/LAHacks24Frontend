@@ -7,8 +7,7 @@ function Stays() {
     let content;
     let reviews;
     const {loading,stays}=useSelector(state=>state.getStays)
-    console.log(stays)
-    const [stay,setStay]=useState({})
+    const [select,makeSelection]=useState([])
     const my_data =  {
         "data": [
          {
@@ -39,11 +38,28 @@ function Stays() {
          }]}
        
         content = my_data["data"]
-
+         useEffect(()=>{
+            localStorage.setItem('stay_selected',JSON.stringify(select));
+         },[select])
         return (
-            <div id='rec-list'>
+            loading===false && stays!==undefined?
+            (<div id='rec-list'>
+                {stays.map((place, index) => (
+                    <div key={index} className="rec" onClick={(event)=>makeSelection([...select,place])}>
+                        {place.name} 
+                        <br></br>
+                        {place.address}
+                        <br></br>
+                        {place.price}
+                        <br></br>
+                        <a href={place}>{place.booking_link}</a>
+                        <br></br>
+                        Reviews: <ReviewNoRating data={place.reviews}/>
+                    </div>
+                ))}
+            </div>):<div id='rec-list'>
                 {content.map((place, index) => (
-                    <div key={index} id="rec">
+                    <div key={index} className="rec">
                         {place.name} 
                         <br></br>
                         {place.address}

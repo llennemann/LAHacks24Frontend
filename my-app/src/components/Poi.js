@@ -6,7 +6,6 @@ function Poi() {
     let content;
     const {loading,poi}=useSelector(state=>state.getPOI)
     const [select,makeSelection]=useState([])
-
     const my_data =  {
         "data" : [
         {
@@ -42,13 +41,13 @@ function Poi() {
             (<div id='rec-list'>
                 {poi.map((place, index) => (
                     <div key={index} className="rec" onClick={(event)=>makeSelection([...select,place])}>
-                        {place['name']} 
+                        {place.name} 
                         <br></br>
-                        Hours: {place['hours']}
+                        <p>Address {place.address}</p>
                         <br></br>
-                        <a href={place['link']}>{place['link']}</a>
+                        Hours: {place.hours}
                         <br></br>
-                        Reviews: <ReviewNoRating data={place['reviews']}/>
+                        Reviews <ReviewNoRating data={place.reviews}/>
                     </div>
                 ))}
             </div>):<div id='rec-list'>
@@ -60,7 +59,7 @@ function Poi() {
                         <br></br>
                         <a href={place.link}>{place.link}</a>
                         <br></br>
-                        Reviews: <ReviewNoRating data={place.reviews}/>
+                        Reviews <ReviewNoRating data={place.reviews}/>
                     </div>
                 ))}
             </div>
