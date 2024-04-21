@@ -59,7 +59,7 @@ function Navbar() {
         <button className="button-spec" onClick={() => {getData('Transportation',transportData);setSelectedCategory('Transportation');}}>Transportation</button>
         <button className="button-spec" onClick={() => {getData('Points of interest',transportData);setSelectedCategory('Points of interest');}}>Points of interest</button>
         <button className="button-spec" onClick={() => {getData('Stays',{
-    "arrival_airport":flight.inbound.arrival_airport_code,
+    "arrival_airport":flight["inbound"]["arrival_airport_code"],
     'startDate':formfields.startDate,
     'endDate':formfields.endDate
   });setSelectedCategory('Stays');}}>Stays</button>

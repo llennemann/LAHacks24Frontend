@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import Review from './Review';
 import {useSelector} from 'react-redux'
 function Food() {
@@ -44,6 +44,9 @@ function Food() {
             }
 
         content = my_data["data"]
+        useEffect(()=>{
+            localStorage.setItem('food_select',JSON.stringify(select))
+        },[select])
 
         return (
             loading===false && food!==undefined?
