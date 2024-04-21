@@ -6,6 +6,7 @@ import Schedule from './components/pages/Schedule';
 import Profile from './components/pages/Profile';
 import Login from './components/pages/Login';
 import Itinerary from './components/pages/itinerary';
+// import Itinerary from './components/pages/Itinerary';
 // import dotenv from 'dotenv'
 // dotenv.config()
 

@@ -16,6 +16,7 @@ function Schedule() {
     let food=JSON.parse(localStorage.getItem('food_select')) // array
     var data={"poi":poi,"flights":flight,"foods":food,"stay":stays}
     if(flight!==null && stays.length!==0 && poi.length!==0 && food.length!==0){
+      console.log("hello")
       dispatch(getItineraryAction(data))
       navigate('/itinerary'); // Navigate to the Itinerary page
       }
@@ -23,7 +24,7 @@ function Schedule() {
 
   return (
     <div className='schedule-page'>
-      <h1>Let's travel to {city}</h1>
+      <h1 id="header-travel">Let's plan your travel to {city}</h1>
       <Navbar/>
       <button className="button-spec" id="done-button" onClick={handleDone}>Done</button>  {/* Updated to handle navigation */}
     </div>

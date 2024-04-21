@@ -7,7 +7,7 @@ const initialState={
     getStays:{medicines:localStorage.getItem('stays')?JSON.parse(localStorage.getItem('stays')):[]},
     getFood:{medicines:localStorage.getItem('food')?JSON.parse(localStorage.getItem('food')):[]},
     getPOI:{medicines:localStorage.getItem('poi')?JSON.parse(localStorage.getItem('poi')):[]},
-    getITN:{medicines:localStorage.getItem('itinerary')?JSON.parse(localStorage.getItem('itinerary')):[]}
+    getITN:{data:localStorage.getItem('itinerary')?JSON.parse(localStorage.getItem('itinerary')):[]}
 }
 
 export default configureStore({

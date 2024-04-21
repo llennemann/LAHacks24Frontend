@@ -59,7 +59,7 @@ export const getItineraryAction=(d)=>async(dispatch,getState)=>{
         dispatch({type:GET_ITINERARY_REQUEST,payload:[]})
         console.log("Action Fired")
         var {data}= await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gemini/places/itinerary`,{params:d})
-        // console.log(data)
+        console.log(data)
         dispatch({type:GET_ITINERARY_SUCCESS,payload:data})
         localStorage.setItem('itinerary',JSON.stringify(getState().getITN))
     } catch (error) {
