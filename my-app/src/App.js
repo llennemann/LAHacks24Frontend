@@ -5,6 +5,8 @@ import Home from './components/pages/Home';
 import Schedule from './components/pages/Schedule';
 import Profile from './components/pages/Profile';
 import Login from './components/pages/Login';
+// import dotenv from 'dotenv'
+// dotenv.config()
 
 function App() {
   return (
