@@ -86,6 +86,7 @@ function Transport() {
                         ))}
                     </div>
                 </div>
+                <br/>
                 <div id="flight-list">
                     <h3>Outbound:</h3>
                     <div id="inner-flight-boxes">

@@ -10,7 +10,7 @@ function Sidebar({data}) {
             {loading===false && places!==undefined && places!==null ?
             places.map((place, index) => (  
                 <div key={index} className="places">
-                    <p><Link to={`/schedule/${place.destination}`}>{place.destination}</Link>  </p>
+                    <p style={{'fontWeight': 'bold'}}><Link to={`/schedule/${place.destination}`}>{place.destination}</Link>  </p>
                     <p>Cost(Approx): ${place.estimated_cost}</p>
                 </div>
             )):
