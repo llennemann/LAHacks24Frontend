@@ -31,7 +31,7 @@ function Navbar() {
         case 'Points of interest':
           return <Poi />;
         default:
-          return <p>Select a category</p>; // Render nothing if no category is selected
+          return <p style={{'text-align': 'center'}}>Select a category</p>; // Render nothing if no category is selected
       }
   };
 

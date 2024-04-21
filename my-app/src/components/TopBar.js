@@ -35,7 +35,7 @@ function TopBar() {
                 <i className="fas fa-user"></i>
             </button>
             <h2 id="title">RoamBuddy</h2>
-            <p id = "para"> Make your travel worry-free with your roamBuddy!</p>
+            <p id = "para"> Socializing and simplifying travel like no other!</p>
             <form id='topbar'>
                 <label>Departure 
                     <input

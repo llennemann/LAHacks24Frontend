@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 // import Review from './Review';
 import {useSelector} from 'react-redux';
+import { FaLongArrowAltRight } from "react-icons/fa";
+
 
 function Transport() {
     // source,destination-city,start-end date so just get the use selector for places
