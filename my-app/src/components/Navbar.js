@@ -15,7 +15,9 @@ function Navbar() {
   var pathname=window.location.pathname;
   pathname=pathname.split('/')[2]
   var transportData={destination:pathname,...formfields}
-  const [stay,getStay]=useState(localStorage.getItem('transport'))
+  let flight=localStorage.getItem('transport')
+  let poi=localStorage.getItem('pois')
+  const [stay,getStay]=useState('')
   // steps get destination here, and the other details for the location here.
   // we need to make variables and reduers for the transportaion, food,stays
   
@@ -59,7 +61,7 @@ function Navbar() {
       <div id="button-list">
         <button onClick={() => {getData('Transportation',transportData);setSelectedCategory('Transportation');}}>Transportation</button>
         <button onClick={() => {getData('Points of interest',transportData);setSelectedCategory('Points of interest');}}>Points of interest</button>
-        <button onClick={() => {getData('Stays',{});setSelectedCategory('Stays');}}>Stays</button>
+        {/* <button onClick={() => {getData('Stays',{...poi,flight['inbound']['arrival_airport']});setSelectedCategory('Stays');}}>Stays</button> */}
         <button onClick={() => {getData('Food',{});setSelectedCategory('Food');}}>Food</button>
       </div>
       {renderComponent()}

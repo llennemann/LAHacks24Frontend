@@ -11,12 +11,12 @@ function Transport() {
     let in_flight;
     let out_flight;
     useEffect(()=>{
-        localStorage.setItem('transport',JSON.stringify(select));
-    })
+        localStorage.setItem('flights',JSON.stringify(select));
+    },[select])
     const my_data = {
     "data": [
         {
-        "inbound_flights": [
+        "inbound_flight": [
             {
             "airline": "United Airlines",
             "flight_number": "1640",
@@ -40,7 +40,7 @@ function Transport() {
             "link": "https://www.delta.com/en-us/book/choose-flights/results?q= LAX LGA 2024-05-05 2024-05-10&v=1"
             }],
             
-            "outbound_flights": [
+            "outbound_flight": [
                 {
                 "airline": "American Airlines",
                 "flight_number": "2345",
@@ -69,8 +69,8 @@ function Transport() {
         }
 
         content = my_data["data"]
-        in_flight = my_data["data"][0]["inbound_flights"] // an array of dicts
-        out_flight = my_data["data"][0]["outbound_flights"] // an array of dicts
+        in_flight = my_data["data"][0]["inbound_flight"] // an array of dicts
+        out_flight = my_data["data"][0]["outbound_flight"] // an array of dicts
 
         return (
             loading===false && transport!==undefined?
@@ -79,8 +79,8 @@ function Transport() {
                 <div id="flight-list">
                     <h3>Inbound:</h3>
                     <div id="inner-flight-boxes">
-                        {transport['inbound_flights'].map((flight, index) => (
-                            <div key={index} className="flight_inbound" onClick={(event)=>makeSelection({...select,inbound:{...flight,local_id:index}})}>
+                        {transport['inbound_flight'].map((flight, index) => (
+                            <div key={index} className="flight_inbound" onClick={(event)=>{makeSelection({...select,inbound:{...flight,local_id:index}});document.getElementsByClassName('flight_inbound')[index].style.backgroundColor="green";}}>
                                 <p>{flight.flight_operator}  {flight.flight_id}</p>
                                 <p>{flight.departure_airport_code} on {flight.depart_date} at {flight.departure_time}</p>
                                 <p>{flight.arrival_airport_code} on {flight.arrival_date} at {flight.arrival_time}</p>
@@ -91,7 +91,7 @@ function Transport() {
                 <div id="flight-list">
                     <h3>Outbound:</h3>
                     <div id="inner-flight-boxes">
-                        {transport['outbound_flights'].map((flight, index) => (
+                        {transport['outbound_flight'].map((flight, index) => (
                             <div key={index} className="flight_outbound" onClick={(event)=>makeSelection({...select,outbound:{...flight,local_id:index}})}>
                             <p>{flight.flight_operator}  {flight.flight_id}</p>
                             <p>{flight.departure_airport_code} on {flight.depart_date} at {flight.departure_time}</p>

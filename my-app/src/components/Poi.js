@@ -1,12 +1,12 @@
-import React from 'react';
-import Review from './Review';
+import React,{useState,useEffect} from 'react';
 import ReviewNoRating from './ReviewNoRating';
 import {useSelector} from 'react-redux';
 
 function Poi() {
     let content;
-    let reviews;
     const {loading,poi}=useSelector(state=>state.getPOI)
+    const [select,makeSelection]=useState([])
+
     const my_data =  {
         "data" : [
         {
@@ -34,12 +34,14 @@ function Poi() {
         
 
         content = my_data["data"]
-
+        useEffect(()=>{
+            localStorage.setItem('poi_selected',JSON.stringify(select));
+        },[select])
         return (
             loading===false && poi!==undefined?
             (<div id='rec-list'>
                 {poi.map((place, index) => (
-                    <div key={index} className="rec">
+                    <div key={index} className="rec" onClick={(event)=>makeSelection({...select,outbound:{...place,local_id:index}})}>
                         {place['name']} 
                         <br></br>
                         Hours: {place['hours']}

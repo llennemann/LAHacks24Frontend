@@ -48,7 +48,7 @@ export const getPOIAction=(d)=>async(dispatch,getState)=>{
         dispatch({type:GET_POI_REQUEST,payload:[]})
         var {data}= await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gemini/places/poi?destination=${d.destination}&start_date=${d.startDate}&return_date=${d.endDate}`)        
         dispatch({type:GET_POI_SUCCESS,payload:data.data})
-        localStorage.setItem('poi',JSON.stringify(getState().getPOI))
+        localStorage.setItem('pois',JSON.stringify(getState().getPOI))
     } catch (error) {
         dispatch({type:GET_POI_FAILED})
     }
