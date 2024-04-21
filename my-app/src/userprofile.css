@@ -1,0 +1,29 @@
+/* UserProfile.css */
+
+.container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .profile {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+  }
+  
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .map-container {
+    width: 50%;
+    background-color: #e6e6e6;
+  }
+  
+  #map {
+    height: 50%;
+  }

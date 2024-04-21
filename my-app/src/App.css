@@ -4,13 +4,38 @@ nav{
   padding:0;
   position: relative;
 }
+
+input {
+  width: 80%;
+}
+
+#title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 30px;
+  margin: 0px;
+  padding-top: 20px;
+}
+
 #topbar {
   position: relative;
-  top: 0;
+  /* top: 0; */
   display: flex;
-  justify-content: space-between ;
-  background-color: aliceblue;
-  padding: 30px;
+  justify-content: space-evenly ;
+  background-color: white;
+  padding: 15px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+#search-button {
+  border: none;
+  margin:7px;
+  padding:4px;
+  background-color: white;
 }
 
 #home-pg{
@@ -30,6 +55,7 @@ nav{
   background-color: azure;
   text-decoration: none;
   color: black;
+  padding: 10px;
 }
 
 .places {
@@ -106,8 +132,8 @@ button:hover {
   background-color: black;
   color: white;      
   cursor: pointer;    
-  outline: none;      
-
+  outline: none;   
+  right: 4%;
 }
 
 .profile-button:hover {
