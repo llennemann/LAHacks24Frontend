@@ -7,7 +7,6 @@ import { FaSearch } from "react-icons/fa";
 function TopBar() {
     const {loading,places}=useSelector(state=>state.getPlaces)
     var date=new Date()
-    console.log('here date')
     const [loc, setLoc] = useState("");
     const [startDate, setStartDate] = useState(`${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`);
     const [endDate, setEndDate] = useState("");

@@ -15,9 +15,13 @@ function Navbar() {
   var pathname=window.location.pathname;
   pathname=pathname.split('/')[2]
   var transportData={destination:pathname,...formfields}
-  let flight=localStorage.getItem('transport')
-  let poi=localStorage.getItem('pois')
-  const [stay,getStay]=useState('')
+  let flight=JSON.parse(localStorage.getItem('flights'))
+  let stayInput={
+    "place":JSON.parse(localStorage.getItem('poi_selected')),
+    "arrival_airport":flight.inbound.arrival_airport_code,
+    'startDate':formfields.startDate,
+    'endDate':formfields.endDate
+  }
   // steps get destination here, and the other details for the location here.
   // we need to make variables and reduers for the transportaion, food,stays
   
@@ -38,6 +42,7 @@ function Navbar() {
   };
 
     const getData=(category,data)=>{
+      // console.log(data)
       switch (category) {
         case 'Transportation':
           dispatch(getTransportAction(data))
@@ -46,7 +51,7 @@ function Navbar() {
           dispatch(getFoodAction())
           return 1;
         case 'Stays':
-          dispatch(getStaysAction())
+          dispatch(getStaysAction(data))
           return 1;
         case 'Points of interest':
           dispatch(getPOIAction(data))
@@ -59,10 +64,10 @@ function Navbar() {
   return (
     <div>
       <div id="button-list">
-        <button className="button-spec" onClick={() => {getData('Transportation',transportData);setSelectedCategory('Transportation');}}>Transportation</button>
-        <button className="button-spec" onClick={() => {getData('Points of interest',transportData);setSelectedCategory('Points of interest');}}>Points of interest</button>
-        {/* <button onClick={() => {getData('Stays',{...poi,flight['inbound']['arrival_airport']});setSelectedCategory('Stays');}}>Stays</button> */}
-        <button className="button-spec" onClick={() => {getData('Food',{});setSelectedCategory('Food');}}>Food</button>
+        <button onClick={() => {getData('Transportation',transportData);setSelectedCategory('Transportation');}}>Transportation</button>
+        <button onClick={() => {getData('Points of interest',transportData);setSelectedCategory('Points of interest');}}>Points of interest</button>
+        <button onClick={() => {getData('Stays',stayInput);setSelectedCategory('Stays');}}>Stays</button>
+        <button onClick={() => {getData('Food',{});setSelectedCategory('Food');}}>Food</button>
       </div>
       {renderComponent()}
       {/* <Rec category={selectedCategory} /> */}
