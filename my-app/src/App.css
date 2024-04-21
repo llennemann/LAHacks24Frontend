@@ -17,6 +17,13 @@ input {
   padding-top: 20px;
 }
 
+#para {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 15px;
+  margin: 0px;
+}
+
 #topbar {
   position: relative;
   /* top: 0; */
