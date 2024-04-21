@@ -87,11 +87,11 @@ input {
   color:black;
   font-size:20;
 }
-
+/* 
 #overall-rec-list {
   display: flex;
   justify-content: space-evenly;
-}
+} */
 
 #flight-list {
   display: flex;
@@ -104,7 +104,7 @@ input {
   display: flex;
   flex-direction: row;
   /* justify-content: flex-end; */
-  align-items: stretch;
+  align-content: space-evenly;
 }
 
 .rec {
@@ -196,9 +196,9 @@ button {
   }
 }
 
-button:hover {
+/* button:hover {
   background-color: yellow;
-}
+} */
 
 #review {
   border: 2px solid black;
