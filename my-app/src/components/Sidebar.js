@@ -6,7 +6,7 @@ function Sidebar({data}) {
     const {loading,places}=useSelector(state=>state.getPlaces)    
     return (
         <div id="sidebar">
-            <h3>Places: </h3>
+            <h3>Destinations: </h3>
             {loading===false && places!==undefined && places!==null ?
             places.map((place, index) => (  
                 <div key={index} className="places">
