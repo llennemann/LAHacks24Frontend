@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { GET_PLACES_SUCCESS,GET_PLACES_FAILED,GET_PLACES_REQUEST, GET_TRANSPORT_REQUEST, GET_STAYS_REQUEST, GET_TRANSPORT_SUCCESS, GET_TRANSPORT_FAILED, GET_STAYS_SUCCESS, GET_STAYS_FAILED, GET_FOOD_FAILED, GET_FOOD_SUCCESS, GET_FOOD_REQUEST, GET_POI_SUCCESS, GET_POI_REQUEST, GET_POI_FAILED } from '../constants/homeconstants';
+import { GET_PLACES_SUCCESS,GET_PLACES_FAILED,GET_PLACES_REQUEST, GET_TRANSPORT_REQUEST, GET_STAYS_REQUEST, GET_TRANSPORT_SUCCESS, GET_TRANSPORT_FAILED, GET_STAYS_SUCCESS, GET_STAYS_FAILED, GET_FOOD_FAILED, GET_FOOD_SUCCESS, GET_FOOD_REQUEST, GET_POI_SUCCESS, GET_POI_REQUEST, GET_POI_FAILED, GET_ITINERARY_REQUEST, GET_ITINERARY_SUCCESS, GET_ITINERARY_FAILED } from '../constants/homeconstants';
 
 export const getPlacesAction=(d)=>async(dispatch,getState)=>{
     try {
@@ -51,5 +51,18 @@ export const getPOIAction=(d)=>async(dispatch,getState)=>{
         localStorage.setItem('pois',JSON.stringify(getState().getPOI))
     } catch (error) {
         dispatch({type:GET_POI_FAILED})
+    }
+}
+
+export const getItineraryAction=(d)=>async(dispatch,getState)=>{
+    try {
+        dispatch({type:GET_ITINERARY_REQUEST,payload:[]})
+        console.log("Action Fired")
+        var {data}= await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/gemini/places/itinerary`,{params:d})
+        // console.log(data)
+        dispatch({type:GET_ITINERARY_SUCCESS,payload:data})
+        localStorage.setItem('itinerary',JSON.stringify(getState().getITN))
+    } catch (error) {
+        dispatch({type:GET_ITINERARY_FAILED,payload:[]})
     }
 }
