@@ -92,8 +92,8 @@ function Transport() {
                 <div id="flight-list">
                     <h3>Outbound:</h3>
                     <div id="inner-flight-boxes">
-                        {transport['outbound_flights'].map((flight, index) => (
-                            <div key={index} className="flight_outbound" onClick={(event)=>makeSelection({...select,outbound:{...flight,local_id:index}})}>
+                        {transport['outbound_flight'].map((flight, index) => (
+                            <div key={index} className="flight_outbound" onClick={(event)=>{makeSelection({...select,outbound:{...flight,local_id:index}});document.getElementsByClassName('flight_outbound')[index].style.backgroundColor="green";}}>
                             <p>{flight.flight_operator}  {flight.flight_id}</p>
                             <p>{flight.departure_airport_code} on {flight.departure_date} at {flight.departure_time}</p>
                             <p>{flight.arrival_airport_code} on {flight.arrival_date} at {flight.arrival_time}</p>
