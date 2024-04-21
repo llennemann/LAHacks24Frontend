@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 // import Review from './Review';
 import {useSelector} from 'react-redux';
+import { FaLongArrowAltRight } from "react-icons/fa";
+
 
 function Transport() {
     // source,destination-city,start-end date so just get the use selector for places
@@ -81,8 +83,9 @@ function Transport() {
                     <div id="inner-flight-boxes">
                         {transport['inbound_flight'].map((flight, index) => (
                             <div key={index} className="flight_inbound" onClick={(event)=>{makeSelection({...select,inbound:{...flight,local_id:index}});document.getElementsByClassName('flight_inbound')[index].style.backgroundColor="green";}}>
-                                <p>{flight.flight_operator}  {flight.flight_id}</p>
+                                <p style={{'fontWeight': 'bold'}}>{flight.flight_operator} </p>
                                 <p>{flight.departure_airport_code} on {flight.depart_date} at {flight.departure_time}</p>
+                                <FaLongArrowAltRight />
                                 <p>{flight.arrival_airport_code} on {flight.arrival_date} at {flight.arrival_time}</p>
                             </div>
                         ))}
@@ -94,8 +97,9 @@ function Transport() {
                     <div id="inner-flight-boxes">
                         {transport['outbound_flight'].map((flight, index) => (
                             <div key={index} className="flight_outbound" onClick={(event)=>{makeSelection({...select,outbound:{...flight,local_id:index}});document.getElementsByClassName('flight_outbound')[index].style.backgroundColor="green";}}>
-                            <p>{flight.flight_operator}  {flight.flight_id}</p>
+                            <p style={{'fontWeight': 'bold'}}>{flight.flight_operator}</p>
                             <p>{flight.departure_airport_code} on {flight.depart_date} at {flight.departure_time}</p>
+                            <FaLongArrowAltRight />
                             <p>{flight.arrival_airport_code} on {flight.arrival_date} at {flight.arrival_time}</p>
                         </div>
                         ))}
