@@ -9,8 +9,9 @@ input {
   width: 80%;
 }
 
-.whole-page {
+.schedule-page {
   margin: 20px;
+  height: 100vh;
 }
 
 #title {
@@ -259,4 +260,9 @@ h1, h2, h3 {
 #inner-flight-boxes {
   display: flex;
   flex-direction: row;
+}
+
+#done-button {
+  bottom: 0;
+  position: absolute;
 }
