@@ -51,26 +51,26 @@ function Food() {
           (  <div id='rec-list'>
                 {food.map((place, index) => (
                     <div key={index} className="rec" onClick={(event)=>{makeSelection([...select,place]);document.getElementsByClassName('rec')[index].style.backgroundColor="#B8F8FE";}}>
-                        {place.name} 
+                        <p style={{'fontWeight': 'bold'}}>{place.name}</p>
                         <br></br>
                         Address: {place.address}
                         <br></br>
                         <p>Type of Food: {place.type_of_food}</p>
                         <br></br>
-                        Reviews: <Review data={place.reviews}/>
+                        <Review data={place.reviews}/>
                     </div>
                 ))}
             </div>):
             (<div id='rec-list'>
                 {content.map((place, index) => (
                     <div key={index} className="rec" onClick={(event)=>{makeSelection([...select,place]);document.getElementsByClassName('rec')[index].style.backgroundColor="#B8F8FE";}}>
-                        {place.place_name} 
+                        <p style={{'fontWeight': 'bold'}}>{place.name}</p>
                         <br></br>
                         Hours: {place.hours}
                         <br></br>
                         <a href={place.booking_link}>{place.booking_link}</a>
                         <br></br>
-                        Reviews: <Review data={place.google_reviews}/>
+                        <Review data={place.google_reviews}/>
                     </div>
                 ))}
             </div>)

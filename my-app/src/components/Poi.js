@@ -41,25 +41,23 @@ function Poi() {
             (<div id='rec-list'>
                 {poi.map((place, index) => (
                     <div key={index} className="rec" onClick={(event)=>{makeSelection([...select,place]);document.getElementsByClassName('rec')[index].style.backgroundColor="";}}>
-                        {place.name} 
+                        <p style={{'fontWeight': 'bold'}}>{place.name}</p>
                         <br></br>
-                        <p>Address {place.address}</p>
+                        {place.address}
                         <br></br>
                         Hours: {place.hours}
                         <br></br>
-                        Reviews <ReviewNoRating data={place.reviews}/>
+                        <ReviewNoRating data={place.reviews}/>
                     </div>
                 ))}
             </div>):<div id='rec-list'>
                 {content.map((place, index) => (
                     <div key={index} className="rec">
                         {place.name} 
-                        <br></br>
                         Hours: {place.hours}
-                        <br></br>
                         <a href={place.link}>{place.link}</a>
                         <br></br>
-                        Reviews <ReviewNoRating data={place.reviews}/>
+                        <ReviewNoRating data={place.reviews}/>
                     </div>
                 ))}
             </div>
