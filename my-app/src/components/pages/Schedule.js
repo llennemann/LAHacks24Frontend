@@ -1,19 +1,24 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar';
 
 function Schedule() {
   const { city } = useParams();
-  
-  // call API here, return JSON data of recommendations
+  const navigate = useNavigate(); // Hook to navigate programmatically
+
+  // Function to handle when the 'Done' button is clicked
+  const handleDone = () => {
+    navigate('/itinerary'); // Navigate to the Itinerary page
+  };
 
   return (
-    <div className="whole-page">
+    <div className='schedule-page'>
       <h1>Let's travel to {city}</h1>
       <Navbar/>
-      <button className="button-spec">Done</button>
+      <button onClick={handleDone}>Done</button>  {/* Updated to handle navigation */}
     </div>
   );
 }
 
 export default Schedule;
+

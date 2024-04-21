@@ -5,6 +5,7 @@ import Home from './components/pages/Home';
 import Schedule from './components/pages/Schedule';
 import Profile from './components/pages/Profile';
 import Login from './components/pages/Login';
+import Itinerary from './components/pages/itinerary';
 // import dotenv from 'dotenv'
 // dotenv.config()
 
@@ -17,6 +18,8 @@ function App() {
           <Route path="/home/*" element={<Home />} />
           <Route path="/schedule/:city" element={<Schedule />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/schedule/:city" element={<Schedule />} />
+          <Route path="/itinerary" element={<Itinerary />} />
         </Routes>
       </div>
     </Router>

@@ -11,7 +11,7 @@ const UserProfile = () => {
     followers: 1269,
     interests: ['Hiking', 'Photography', 'Camping'],
   };
-
+  
   return (
     <div className="container">
       <div className="profile">
