@@ -15,8 +15,10 @@ function Navbar() {
   var pathname=window.location.pathname;
   pathname=pathname.split('/')[2]
   var transportData={destination:pathname,...formfields}
+  const [stay,getStay]=useState(localStorage.getItem('transport'))
   // steps get destination here, and the other details for the location here.
   // we need to make variables and reduers for the transportaion, food,stays
+  
 
   const renderComponent = () => {
     switch (selectedCategory) {
@@ -45,7 +47,7 @@ function Navbar() {
           dispatch(getStaysAction())
           return 1;
         case 'Points of interest':
-          dispatch(getPOIAction())
+          dispatch(getPOIAction(data))
           return 1;
         default:
           return 0;
@@ -56,9 +58,9 @@ function Navbar() {
     <div>
       <div id="button-list">
         <button onClick={() => {getData('Transportation',transportData);setSelectedCategory('Transportation');}}>Transportation</button>
-        <button onClick={() => {setSelectedCategory('Stays');getData('Stays',{})}}>Stays</button>
-        <button onClick={() => {setSelectedCategory('Points of interest',{});getData('POI')}}>Points of interest</button>
-        <button onClick={() => {setSelectedCategory('Food');getData('Food',{})}}>Food</button>
+        <button onClick={() => {getData('Points of interest',transportData);setSelectedCategory('Points of interest');}}>Points of interest</button>
+        <button onClick={() => {getData('Stays',{});setSelectedCategory('Stays');}}>Stays</button>
+        <button onClick={() => {getData('Food',{});setSelectedCategory('Food');}}>Food</button>
       </div>
       {renderComponent()}
       {/* <Rec category={selectedCategory} /> */}
